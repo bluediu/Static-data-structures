@@ -8,11 +8,12 @@ import time
 from array import array
 
 # Creación de un array de un millón de enteros
-arr = array("l", [i for i in range(1000000)])
+arr_size = 1_000_000
+arr = array("l", [i for i in range(arr_size)])
 
 # Medición del tiempo de acceso
 start_time = time.time()
-for i in range(1000000):
+for i in range(arr_size):
     _ = arr[i]
 
 # Convertir a milisegundos
