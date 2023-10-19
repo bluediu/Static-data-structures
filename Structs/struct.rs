@@ -10,7 +10,7 @@ fn main() {
     // Creación del array
     let personas: Vec<Persona> = (0..1000000)
         .map(|i| Persona {
-            nombre: "Juan".to_string(),
+            nombre: "Josue".to_string(),
             edad: 25,
             id: i,
         })
