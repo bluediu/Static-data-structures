@@ -13,6 +13,8 @@ fn main() {
   for i in 0..1000000 {
     let _ = arr[i];
   }
+  
+  // Convertir a milisegundos
   let elapsed_time = start_time.elapsed().as_millis();
 
   println!("Tiempo de acceso: {} ms", elapsed_time);
