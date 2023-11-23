@@ -1,37 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 
 typedef struct {
-    char nombre[50];
-    int edad;
-    int id;
-} Persona;
+    int entero;
+    float flotante;
+    char cadena[50];
+} Tupla;
 
 int main() {
-    // Creación del array using dynamic memory allocation
-    Persona *personas = (Persona *)malloc(sizeof(Persona) * 2000000);
-    if (!personas) {
-        printf("Memory allocation failed\n");
-        return 1;
-    }
-
-    int i = 0;
-    for(i = 0; i < 2000000; i++) {
-        personas[i].edad = 25;
-        personas[i].id = i;
-        sprintf(personas[i].nombre, "Josue");
-    }
+    // Creación de la "tupla"
+    Tupla tup = {123, 456.789, "Hello, World!"};
 
     // Medición de tiempo de acceso
     clock_t start_time = clock();
-    for(i = 0; i < 2000000; i++) {
-        volatile int edad = personas[i].edad;
-        volatile int id = personas[i].id;
+    for(int i = 0; i < 2000000; i++) {
+        volatile int entero = tup.entero;
+        volatile float flotante = tup.flotante;
+        volatile char cadena = tup.cadena[0];
     }
-
+    
     double elapsed_time = (double)(clock() - start_time) / CLOCKS_PER_SEC * 1000;
-
     printf("                 ,\n");
     printf("                /|      __\n");
     printf("               / |   ,-~ /\n");
@@ -52,11 +40,9 @@ int main() {
     printf("         ]\\      _\\    /\"\\\n");
     printf("        (\" ~----( ~   Y.  )\n");
     printf("╔════════════════════════════════╗\n");
-    printf("║         Structs en C          ║\n");
+    printf("║         Tuplas en C           ║\n");
     printf("║--------------------------------║\n");
     printf("║ Tiempo de compilación: %.2f ms ║\n", elapsed_time);
     printf("╚════════════════════════════════╝\n");
-
-    free(personas);  // Liberar la memoria asignada
     return 0;
 }

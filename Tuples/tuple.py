@@ -1,18 +1,16 @@
 import time
-from array import array
 
-# Creación de un array de un millón de enteros
-arr_size = 2_000_000
-arr = array("l", [i for i in range(arr_size)])
+# Creación de la tupla
+tup = (123, 456.789, "Hello, World!")
 
-# Medición del tiempo de acceso
+# Medición de tiempo de acceso
 start_time = time.time()
-for i in range(arr_size):
-    _ = arr[i]
+for _ in range(2000000):
+    _ = tup[0]
+    _ = tup[1]
+    _ = tup[2]
 
-# Convertir a milisegundos
-elapsed_time = (time.time() - start_time) * 1000
-
+elapsed_time = (time.time() - start_time) * 1000  # Convertir a milisegundos
 print("         /^\\/^\\")
 print("       _|__|  O|")
 print("\\/    /~     \\_/ \\")
@@ -31,7 +29,7 @@ print(f"          \\      ~-____-~    _-~    ~-_    ~-_-~    /")
 print(f"            ~-_           _-~          ~-_       _-~")
 print(f"               ~--______-~                ~-___-~")
 print("             ╔═════════════════════════════╗")
-print("             ║    Arreglos en Python 󰌠     ║")
+print("             ║    Tuplas en Python 󰌠       ║")
 print("             ║-----------------------------║")
 print(f"             ║ Tiempo de acceso: {elapsed_time:.2f} ms ║")
 print("             ╚═════════════════════════════╝")
